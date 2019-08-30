@@ -6,6 +6,6 @@ spec:
   type: NodePort
   ports:
   - name: http
-    port: 8080
+    port: 9080
   selector:
     app: "greetings"
