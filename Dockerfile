@@ -11,7 +11,7 @@ WORKDIR $BUILD_DIR
 VOLUME ${HOME}/.m2:/root/.m2
 ADD . /usr/src/app
 
-RUN bash -c " mvn clean install"
+RUN bash -c "mvn clean install"
 
 FROM openliberty/open-liberty:springBoot2-ubi-min as staging
 USER root
@@ -32,6 +32,8 @@ RUN springBootUtility thin \
 
 FROM openliberty/open-liberty:springBoot2-ubi-min
 USER root
+RUN mkdir -p /opt/ol/wlp/usr/shared/resources/
+RUN mkdir -p /config/dropins/spring/
 COPY --from=staging /staging/lib.index.cache /opt/ol/wlp/usr/shared/resources/lib.index.cache
 COPY --from=staging /staging/thinClinic.jar /config/dropins/spring/thinClinic.jar
 
