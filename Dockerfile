@@ -16,8 +16,8 @@ FROM openliberty/open-liberty:springBoot2-ubi-min
 
 COPY --chown=1001:0 --from=staging /config/thinClinic.jar /config/dropins/spring/thinClinic.jar
 COPY --chown=1001:0 --from=staging /config/lib.index.cache /opt/ol/wlp/usr/shared/resources/lib.index.cache
-RUN mkdir -p /config/dropins/spring
-RUN echo foo > /config/dropins/spring/foo.txt
+#RUN mkdir -p /config/dropins/spring
+#RUN echo foo > /config/dropins/spring/foo.txt
 
 
 
