@@ -15,5 +15,8 @@ RUN springBootUtility thin \
 FROM openliberty/open-liberty:springBoot2-ubi-min
 
 COPY --chown=1001:0 --from=staging /config/lib.index.cache /opt/ol/wlp/usr/shared/resources/lib.index.cache
-#COPY --chown=1001:0 --from=staging /config/thinClinic.jar /config/dropins/spring/thinClinic.jar
+RUN mkdir /config/dropins/spring
+RUN echo foo > /config/dropins/spring/foo.txt
+#COPY --chown=1001:0 --from=staging /config/thinClinic.jar /config/dropins/thinClinic.jar
+
 
