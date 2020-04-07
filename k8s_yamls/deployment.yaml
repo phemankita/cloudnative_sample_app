@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: "greeting"
-        image: __IMAGE__
+        image: "hemankita/cloudnative_sample_app:latest"
         imagePullPolicy: "IfNotPresent"
         env:
           - name: PORT
